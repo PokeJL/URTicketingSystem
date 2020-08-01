@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15707514660010" configfile="/URTicketingSystem/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="jsf/addProduct.xhtml" x="122" y="562" id="pf15719679374610" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15737905171800 pf15737905171801" path="loginPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ticketListPage.xhtml" x="338" y="360" id="pf15727949723721" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15737905171802 pf15737905171803" path="indexTicket.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="indexTicke.xhtml" id="pf15730864194346" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf15737905171804 pf15737905171805" path="ticketListPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editTicket.xhtml" id="pf15730911270921" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15737905171816 pf15737905171817" path="editTicket.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsf/indexTicket.xhtml" id="pf15737905171818" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15737905171800" path="jsf/indexTicket.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsf/failure.xhtml" id="pf15737905171819" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf15737905171801 pf15737905171803 pf15737905171817" path="jsf/failure.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsf/ticketCreatedSuccess.xhtml" id="pf157379051718110" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15737905171802" path="jsf/ticketCreatedSuccess.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsf/editTicket.xhtml" id="pf157379051718111" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15737905171804" path="jsf/editTicket.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="fjsf/ailure.xhtml" id="pf157379051718112" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf15737905171805" path="fjsf/ailure.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsf/ticketListPage.xhtml" id="pf157379051718113" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15737905171816" path="jsf/ticketListPage.xhtml"/>
+  <links id="pf15737905171800" target="pf15737905171818" source="pf15719679374610" outcome="success" redirect="true"/>
+  <links id="pf15737905171801" target="pf15737905171819" source="pf15719679374610" outcome="failure"/>
+  <links id="pf15737905171802" target="pf157379051718110" source="pf15727949723721" outcome="success" redirect="true"/>
+  <links id="pf15737905171803" target="pf15737905171819" source="pf15727949723721" outcome="failure"/>
+  <links id="pf15737905171804" target="pf157379051718111" source="pf15730864194346" outcome="success" redirect="true"/>
+  <links id="pf15737905171805" target="pf157379051718112" source="pf15730864194346" outcome="failure"/>
+  <links id="pf15737905171816" target="pf157379051718113" source="pf15730911270921" outcome="success" redirect="true" fromaction="#{ticketBean.updateTkDetailstodb}"/>
+  <links id="pf15737905171817" target="pf15737905171819" source="pf15730911270921" outcome="failure" fromaction="#{ticketBean.updateTkDetailstodb}"/>
+</pageflow:Pageflow>

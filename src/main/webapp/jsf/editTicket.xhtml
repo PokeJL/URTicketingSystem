@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>EditTicketPage</title>
+	<link rel="stylesheet" href="resources/css/TicketStyle.css" type="text/css" />
+</h:head>
+
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+	<b:container>
+	<b:navBar styleClass="navbar bg-primary" brand="UR Ticketing System" brandHref="#" inverse="true" fixed="top">
+	<b:iconAwesome styleClass="pull-left" name="cog" spin="true" size="3x" look="default" />
+		<b:navbarLinks>
+			<b:navLink value="Create Ticket" href="indexTicket.xhtml"></b:navLink>
+			<b:navLink value="Tickets In Queue" href="ticketListPage.xhtml"></b:navLink>
+			<b:navLink value="My Tickets" href="myTickets.xhtml"></b:navLink>
+		</b:navbarLinks>
+
+		<b:form>
+			<b:commandButton action="#{userBean.logout}" value="Logout"
+				style="float:right;" iconAligh="right"></b:commandButton>
+		</b:form>
+	</b:navBar>
+	
+			<b:container style="margin-right: auto; margin-left: auto; width:500px; height:300px; padding:20px;" >
+	
+			<b:form>
+				<b:row> 
+					<b:column> TicketId: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.ticketId}" /></b:column>
+				</b:row>					
+				
+				<b:row>  
+					<b:column> User Name: </b:column>
+					<b:column> <b:inputText value="#{userBean.usEntity.userName}" /></b:column>
+				</b:row>
+				
+				<b:row>  
+					<b:column> Priority: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.priority}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Date Created: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.dateCreated}" /></b:column>
+				</b:row>
+
+				<b:row>
+					<b:column>Asignee: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.worker}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Department: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.department}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Status: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.status}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Title: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.title}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column><b> Description: </b></b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.description}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Location: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.location}" /></b:column>
+				</b:row>
+
+				<b:row>  
+					<b:column> Room number: </b:column>
+					<b:column><b:inputText value="#{ticketBean.editTicket.roomNumber}" /></b:column>
+				</b:row>
+				<b:row>  
+						<td><b> Keep me Notified: </b></td>
+						<td><h:selectOneRadio value="#{ticketBean.tk.notify}">
+								<f:selectItem itemValue="false" itemLabel="No" />
+								<f:selectItem itemValue="true" itemLabel="Yes" />
+							</h:selectOneRadio></td>
+				</b:row>
+				<b:row>  
+						<td><b> Comments: </b></td>
+						<td><h:inputTextarea id="comments"
+								value="#{ticketBean.editTicket.comments}" /></td>
+				</b:row>
+					
+				<b:commandButton action="#{ticketBean.updateTkDetailstodb(ticketBean.editTicket.ticketId)}" value="Save" class="btn btn-primary" />
+
+			</b:form>
+		</b:container>
+</b:container>
+</h:body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:body>
+
+    <h1>JSF 2.2 CDI Managed Bean</h1>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="User ID" for="userId"/>
+            <h:inputText id="userId" value="#{priorityBean.p.userId}"/>
+            <h:outputLabel value="Ticket ID" for="ticketId"/>
+            <h:inputText id="ticketId" value="#{priorityBean.p.ticketId}"/>
+           
+            <h:commandButton action="#{priorityBean.sendPDetailstodb}" value="send"/>
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>
